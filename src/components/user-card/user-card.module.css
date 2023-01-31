@@ -1,0 +1,44 @@
+.userCard {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  height: 278px;
+  overflow: hidden;
+  border: 1px solid rgb(197, 174, 174);
+  margin: 10px;
+  text-overflow: ellipsis;
+}
+
+.userName {
+  color: black;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  border: 3px solid rgb(66, 160, 208);
+  border-radius: 50%;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background-color: rgb(215, 212, 212);
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  color: grey;
+}
+
+.data {
+  font-weight: bolder;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.title {
+  font-weight: 200;
+  font-size: small;
+}
