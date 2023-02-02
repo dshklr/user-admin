@@ -1,9 +1,13 @@
 import React from "react";
+import styles from "./select.module.css";
 
 export default function Select({ onChange, options }) {
   return (
     <>
-      <select onChange={(e) => onChange(e.target.value)}>
+      <select
+        className={styles.select}
+        onChange={(e) => onChange(e.target.value)}
+      >
         {options.map((option) => (
           <option key={option.value} value={option.value}>
             {option.label}

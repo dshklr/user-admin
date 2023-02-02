@@ -1,10 +1,8 @@
 .search {
-  border: 3px solid #000;
+  border: 1px solid #ccc;
   border-radius: 5px;
   height: 50px;
   line-height: normal;
-  color: #282828;
-
   box-sizing: border-box;
   user-select: auto;
   font-size: 16px;
