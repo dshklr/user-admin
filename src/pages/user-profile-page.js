@@ -6,8 +6,8 @@ import UserProfileCard from "../components/user-profile-card/user-profile-card";
 
 function UserPage() {
   const { id } = useParams();
-  const [user, setUser] = useState({});
-  const [company, setCompany] = useState([]);
+  const [user, setUser] = useState(null);
+  const [company, setCompany] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -43,6 +43,4 @@ function UserPage() {
 
 export default UserPage;
 
-// white page
-// loaidng
-// userInfo | not found user
+
