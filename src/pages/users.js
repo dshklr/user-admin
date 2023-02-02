@@ -43,7 +43,7 @@ export default function Users() {
       setIsLoading(true);
 
       try {
-        const response = await api.get("/user", {
+        const response = await api.get("/users", {
           params,
         });
 
