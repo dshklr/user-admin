@@ -1,7 +1,7 @@
 import calculateAge from "../helpers";
 import styles from "./user-profile-card.module.css";
 
-export default function UserProfileCard({ user, company }) {
+export default function UserProfileCard({ user, company, onDelete }) {
   return (
     <div className={styles.container}>
       <div className={styles.imageName}>
@@ -31,6 +31,9 @@ export default function UserProfileCard({ user, company }) {
       </div>
       <div>
         <button className={styles.button}>edit</button>
+        <button onClick={onDelete} className={styles.button}>
+          delete
+        </button>
       </div>
     </div>
   );
