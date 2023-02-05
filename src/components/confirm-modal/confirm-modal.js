@@ -13,7 +13,7 @@ export default function ConfirmModal({ isOpen, onClose, onConfirm }) {
       >
         <div className={styles.content}>
           <h2 className={styles.header}>
-            Are you sure you want to delete the card?
+            Are you sure you want to delete user?
           </h2>
           <div className={styles.footer}>
             <button className={styles.button} onClick={onClose}>

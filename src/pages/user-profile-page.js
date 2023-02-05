@@ -35,18 +35,18 @@ function UserPage() {
 
   const navigate = useNavigate();
 
-  function handleConfirm() {
+  function handleBack() {
     navigate(-1);
   }
 
-  const handleDelete = () => {
+  const onDelete = () => {
     setShowModal(true);
   };
 
   const handleConfirmDelete = async () => {
     try {
       await api.delete(`/users/${id}`);
-      handleConfirm();
+      handleBack();
     } catch (error) {
       console.error(error);
     }
@@ -61,11 +61,7 @@ function UserPage() {
       {isLoading ? (
         <Loading />
       ) : (
-        <UserProfileCard
-          handleDelete={handleDelete}
-          company={company}
-          user={user}
-        />
+        <UserProfileCard onDelete={onDelete} company={company} user={user} />
       )}
 
       <ConfirmModal
