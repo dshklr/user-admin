@@ -1,6 +1,13 @@
 import React from "react";
 
-export function Input({ label, value, onChange, name, className, type }) {
+export function Input({
+  label,
+  value,
+  onChange,
+  name,
+  className,
+  type = "text",
+}) {
   return (
     <label>
       {label}
