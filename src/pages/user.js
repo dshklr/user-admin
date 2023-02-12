@@ -2,27 +2,28 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Loading from "../components/loader/loader";
 import { api } from "../api/index";
-import UserProfileCard from "../components/user-profile-card/user-profile-card";
+import UserProfileCard from "../components/user-profile-card/user-info";
 import { useNavigate } from "react-router-dom";
 import ConfirmModal from "../components/confirm-modal/confirm-modal";
 
-function UserPage() {
+export function User() {
   const { id } = useParams();
+  const navigate = useNavigate();
+
   const [user, setUser] = useState(null);
-  const [company, setCompany] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
+    setIsLoading(true);
+
     const fetchData = async () => {
       try {
-        const [userResponse, companyResponse] = await Promise.all([
-          api.get(`/users/${id}`),
-          api.get(`/users/${id}/company/${id}`),
-        ]);
+        const user = await api.get(`/users/${id}`);
 
-        setUser(userResponse.data);
-        setCompany(companyResponse.data);
+        setUser({
+          ...user.data,
+        });
       } catch (error) {
         console.error(error);
       } finally {
@@ -32,8 +33,6 @@ function UserPage() {
 
     fetchData();
   }, [id]);
-
-  const navigate = useNavigate();
 
   function handleBack() {
     navigate(-1);
@@ -61,9 +60,8 @@ function UserPage() {
       {isLoading ? (
         <Loading />
       ) : (
-        <UserProfileCard onDelete={onDelete} company={company} user={user} />
+        <UserProfileCard onDelete={onDelete} user={user} />
       )}
-
       <ConfirmModal
         isOpen={showModal}
         onClose={handleClose}
@@ -72,5 +70,3 @@ function UserPage() {
     </div>
   );
 }
-
-export default UserPage;

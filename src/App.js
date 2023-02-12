@@ -1,7 +1,8 @@
-import Users from "./pages/users";
-import UserPage from "./pages/user-profile-page";
+import { Users } from "./pages/users";
+import { User } from "./pages/user";
 import { Routes, Route } from "react-router-dom";
-import NotFound from "./pages/not-found-page";
+import { NotFound } from "./pages/not-found";
+import { UserEdit } from "./pages/user-edit";
 
 function App() {
   return (
@@ -9,7 +10,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Users />} />
         <Route path="*" element={<NotFound />} />
-        <Route path="/user/:id" element={<UserPage />} />
+        <Route path="/user/:id" element={<User />} />
+        <Route path="/user/:id/edit" element={<UserEdit />} />
       </Routes>
     </div>
   );
