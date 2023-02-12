@@ -17,11 +17,11 @@ export default function UserProfileCard({ user, onDelete }) {
         <p className={styles.title}>Email: </p>
         {user.email}
       </div>
-      <div>
+      <div className={styles.buttonContainer}>
         <Link to={`/user/${user.id}/edit`}>
           <button className={styles.button}>edit</button>
         </Link>
-        <button onClick={onDelete} className={styles.button}>
+        <button className={styles.button} onClick={onDelete}>
           delete
         </button>
       </div>

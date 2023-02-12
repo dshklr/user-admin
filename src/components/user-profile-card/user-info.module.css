@@ -20,7 +20,8 @@ body {
   text-align: center;
   text-decoration: none;
   touch-action: manipulation;
-  width: auto;
+  width: 100px;
+  height: 50px;
 }
 
 .button:focus-visible {
@@ -82,4 +83,9 @@ body {
 
 .buttonContainer {
   gap: 5px;
+}
+
+.buttonContainer {
+  display: flex;
+  gap: 21px;
 }
