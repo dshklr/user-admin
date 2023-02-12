@@ -7,7 +7,7 @@ import { api } from "../api/index";
 import Loading from "../components/loader/loader";
 import "../app.css";
 
-export default function Users() {
+export function Users() {
   const [users, setUsers] = useState([]);
   const [searchValue, setSearchValue] = useState("");
   const [sort, setSort] = useState(SORT_OPTIONS[0].value);
@@ -21,22 +21,6 @@ export default function Users() {
   const handleSortChange = (sort) => {
     setSort(sort);
   };
-
-  // function handleUserDelete(userId) {
-  //   setIsLoading(true);
-
-  //   try {
-  //     api.delete(`/user/${userId}`).then((response) => {
-  //       setUsers((users) => users.filter((user) => user.id !== userId));
-
-  //       setIsLoading(false);
-  //     });
-  //   } catch (error) {
-  //     setIsLoading(false);
-
-  //     console.log(error);
-  //   }
-  // }
 
   useEffect(() => {
     const fetchUsers = async (params) => {
