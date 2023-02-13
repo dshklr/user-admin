@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import Modal from "react-modal";
 import { Input } from "../input/input";
 import styles from "../add-user-modal/add-user-modal.module.css";
+import { Button } from "../button/button";
+import { getValidate } from "../helpers";
 
 const DEFAULT_USER = {
   avatar: "",
@@ -15,28 +17,14 @@ export function AddUserModal({ isOpen, onClose, onSave }) {
   const [userState, setUserState] = useState(() => DEFAULT_USER);
   const [errors, setErrors] = useState({});
 
-  const getValidate = (object) => {
-    let isValid = true;
-    const updatedErrors = { ...errors };
-
-    Object.entries(object).forEach(([key, value]) => {
-      if (value === "") {
-        isValid = false;
-        updatedErrors[key] = "This information is important to us!";
-      }
-    });
-
-    setErrors(updatedErrors);
-
-    return isValid;
-  };
-
   const handleSaveClick = () => {
-    const isValid = getValidate(userState);
+    const { isValid, updatedErrors } = getValidate(userState);
 
     if (!isValid) {
+      setErrors(updatedErrors);
       return;
     }
+
     onSave(userState);
   };
 
@@ -91,7 +79,7 @@ export function AddUserModal({ isOpen, onClose, onSave }) {
           error={errors["city"]}
         />
         <Input
-          label=" email"
+          label="email"
           name="email"
           value={userState.email}
           onChange={handleInputChange}
@@ -99,12 +87,8 @@ export function AddUserModal({ isOpen, onClose, onSave }) {
           error={errors["email"]}
         />
         <div className={styles.buttonContainer}>
-          <button className={styles.button} onClick={handleSaveClick}>
-            add
-          </button>
-          <button className={styles.button} onClick={onClose}>
-            cancel
-          </button>
+          <Button onClick={handleSaveClick} label=" add" />
+          <Button onClick={onClose} label="cancel" />
         </div>
       </Modal>
     </div>

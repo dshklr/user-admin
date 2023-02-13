@@ -7,6 +7,7 @@ import { api } from "../api/index";
 import Loading from "../components/loader/loader";
 import "../app.css";
 import { AddUserModal } from "../components/add-user-modal/add-user-modal";
+import { Button } from "../components/button/button";
 
 export function Users() {
   const [users, setUsers] = useState([]);
@@ -48,13 +49,13 @@ export function Users() {
     });
   }, [order, sort, searchValue]);
 
-  function handleAddUser() {
+  const handleAddUser = () => {
     setShowModal(true);
-  }
+  };
 
-  function handleClose() {
+  const handleClose = () => {
     setShowModal(false);
-  }
+  };
 
   const handleUserAdd = async (user) => {
     try {
@@ -71,7 +72,6 @@ export function Users() {
           },
         });
         setUsers(responseUser.data);
-        console.log(responseUser);
       }
     } catch (error) {
       console.error("Error adding user", error);
@@ -90,9 +90,7 @@ export function Users() {
         />
         <Select onChange={handleOrderChange} options={SELECT_OPTIONS} />
         <Select onChange={handleSortChange} options={SORT_OPTIONS} />
-        <button className="button" onClick={handleAddUser}>
-          add new user
-        </button>
+        <Button onClick={handleAddUser} label="add new user" />
       </div>
       {isLoading ? (
         <Loading />

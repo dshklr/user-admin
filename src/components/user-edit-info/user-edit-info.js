@@ -1,6 +1,7 @@
 import React from "react";
 import { Input } from "../input/input";
 import styles from "./user-edit-info.module.css";
+import { Button } from "../button/button";
 
 export function UserEditInfo({ user, onChange, onSave, errors, handleBack }) {
   return (
@@ -46,12 +47,8 @@ export function UserEditInfo({ user, onChange, onSave, errors, handleBack }) {
         error={errors["email"]}
       />
       <div className={styles.container}>
-        <button className={styles.button} onClick={onSave}>
-          save
-        </button>
-        <button className={styles.button} onClick={handleBack}>
-          cancel
-        </button>
+        <Button label="save" onClick={onSave} />
+        <Button onClick={handleBack} label="cancel" />
       </div>
     </div>
   );
