@@ -17,7 +17,7 @@ export default function ConfirmModal({ isOpen, onClose, onConfirm }) {
             Are you sure you want to delete user?
           </h2>
           <div className={styles.footer}>
-            <Button label="Yes" nClick={onConfirm} />
+            <Button label="Yes" onClick={onConfirm} />
             <Button label="No" onClick={onClose} />
           </div>
         </div>
