@@ -1,7 +1,8 @@
+//libs
 import React from "react";
 import styles from "./select.module.css";
 
-export default function Select({ onChange, options }) {
+export function Select({ onChange, options }) {
   return (
     <>
       <select

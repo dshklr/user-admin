@@ -1,9 +1,12 @@
-import calculateAge from "../helpers";
-import styles from "./user-info.module.css";
+//libs
+import React from "react";
 import { Link } from "react-router-dom";
-import { Button } from "../button/button";
+//components
+import calculateAge from "../../helpers";
+import { Button } from "../index";
+import styles from "./user-info.module.css";
 
-export default function UserProfileCard({ user, onDelete }) {
+export function UserProfileCard({ user, onDelete }) {
   return (
     <div className={styles.container}>
       <div className={styles.imageName}>

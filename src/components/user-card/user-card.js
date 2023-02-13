@@ -1,12 +1,11 @@
+//libs
 import React from "react";
-import styles from "./user-card.module.css";
-import calculateAge from "../helpers";
 import { Link } from "react-router-dom";
+import styles from "./user-card.module.css";
+//components
+import calculateAge from "../../helpers";
 
-export default function UserCard({ user }) {
-  // const handleDelete = (e) => {
-  //   onDelete(user.id);
-  // };
+export function UserCard({ user }) {
   return (
     <Link className={styles.link} to={`/user/${user.id}`} key={user.id}>
       <div className={styles.userCard} key={user.id}>
@@ -33,4 +32,3 @@ export default function UserCard({ user }) {
     </Link>
   );
 }
-

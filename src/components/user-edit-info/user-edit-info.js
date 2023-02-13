@@ -1,7 +1,8 @@
+//libs
 import React from "react";
-import { Input } from "../input/input";
+//components
+import { Input, Button } from "../index";
 import styles from "./user-edit-info.module.css";
-import { Button } from "../button/button";
 
 export function UserEditInfo({ user, onChange, onSave, errors, handleBack }) {
   return (

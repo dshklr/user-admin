@@ -1,6 +1,6 @@
 import styles from './loader.module.css'
 
-export default function Loading(){
+export function Loading(){
     return (
       <div className={styles.loader}>
         <div className={styles.spinner}></div>

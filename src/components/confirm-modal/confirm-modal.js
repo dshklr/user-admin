@@ -1,9 +1,11 @@
+//libs
 import React from "react";
 import Modal from "react-modal";
+//components
+import { Button } from "../index";
 import styles from "./confirm-modal.module.css";
-import { Button } from "../button/button";
 
-export default function ConfirmModal({ isOpen, onClose, onConfirm }) {
+export function ConfirmModal({ isOpen, onClose, onConfirm }) {
   return (
     <div>
       <Modal

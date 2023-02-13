@@ -1,10 +1,11 @@
+//libs
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
+//api
 import { api } from "../api";
-import Loading from "../components/loader/loader";
-import { UserEditInfo } from "../components/user-edit-info/user-edit-info";
-import { useNavigate } from "react-router-dom";
-import { getValidate } from "../components/helpers";
+//components
+import { Loading, UserEditInfo } from "../components/index";
+import { getValidate } from "../helpers";
 
 export function UserEdit() {
   const { id } = useParams();

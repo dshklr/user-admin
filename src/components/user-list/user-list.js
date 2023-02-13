@@ -1,8 +1,10 @@
+//libs
 import React from "react";
-import UserCard from "../user-card/user-card";
+//components
+import { UserCard } from "../index";
 import styles from "./user-list.module.css";
 
-export default function UserList({ users, onDelete }) {
+export function UserList({ users, onDelete }) {
   return (
     <div className={styles.userList}>
       {users.map((user) => (

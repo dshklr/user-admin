@@ -1,9 +1,11 @@
+//libs
 import React, { useState } from "react";
 import Modal from "react-modal";
-import { Input } from "../input/input";
+//components
+import { Input, Button } from "../index";
+import { getValidate } from '../../helpers'
+
 import styles from "../add-user-modal/add-user-modal.module.css";
-import { Button } from "../button/button";
-import { getValidate } from "../helpers";
 
 const DEFAULT_USER = {
   avatar: "",

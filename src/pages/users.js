@@ -1,13 +1,18 @@
+//libs
 import React, { useState, useEffect } from "react";
-import UserList from "../components/user-list/user-list";
-import Search from "../components/search/search";
-import Select from "../components/select/select";
-import { SELECT_OPTIONS, SORT_OPTIONS } from "../components/constants";
+//components
+import {
+  UserList,
+  Search,
+  Select,
+  Loading,
+  AddUserModal,
+  Button,
+} from "../components/index";
+import { SELECT_OPTIONS, SORT_OPTIONS } from "../constants";
+//api
 import { api } from "../api/index";
-import Loading from "../components/loader/loader";
 import "../app.css";
-import { AddUserModal } from "../components/add-user-modal/add-user-modal";
-import { Button } from "../components/button/button";
 
 export function Users() {
   const [users, setUsers] = useState([]);
