@@ -11,19 +11,6 @@
   width: 300px;
 }
 
-.button {
-  padding: 10px 20px;
-  background-color: #4caf50;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.button:hover {
-  background-color: #3e8e41;
-}
-
 .container {
   display: flex;
   gap: 15px;
@@ -34,9 +21,4 @@
   border: 1px solid red;
   margin-top: 6px;
   width: 300px;
-}
-
-.errorMessage {
-  color: #ff0000;
-  margin-top: 5px;
 }

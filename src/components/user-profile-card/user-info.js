@@ -1,6 +1,7 @@
 import calculateAge from "../helpers";
 import styles from "./user-info.module.css";
 import { Link } from "react-router-dom";
+import { Button } from "../button/button";
 
 export default function UserProfileCard({ user, onDelete }) {
   return (
@@ -19,11 +20,9 @@ export default function UserProfileCard({ user, onDelete }) {
       </div>
       <div className={styles.buttonContainer}>
         <Link to={`/user/${user.id}/edit`}>
-          <button className={styles.button}>edit</button>
+          <Button label="edit" />
         </Link>
-        <button className={styles.button} onClick={onDelete}>
-          delete
-        </button>
+        <Button label="delete" onClick={onDelete} />
       </div>
     </div>
   );
