@@ -8,11 +8,11 @@ import {
   Loading,
   AddUserModal,
   Button,
-} from "../components/index";
-import { SELECT_OPTIONS, SORT_OPTIONS } from "../constants";
+} from "../../components/index";
+import { SELECT_OPTIONS, SORT_OPTIONS } from "../../constants";
 //api
-import { api } from "../api/index";
-import "../app.css";
+import { api } from "../../api/index";
+import styles from "./users.module.css";
 
 export function Users() {
   const [users, setUsers] = useState([]);
@@ -86,8 +86,8 @@ export function Users() {
   };
 
   return (
-    <div className="container">
-      <div className="searchControl">
+    <div className={styles.container}>
+      <div className={styles.searchControl}>
         <Search
           value={searchValue}
           setSearchValue={setSearchValue}

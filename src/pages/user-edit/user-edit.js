@@ -2,10 +2,10 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 //api
-import { api } from "../api";
+import { api } from "../../api";
 //components
-import { Loading, UserEditInfo } from "../components/index";
-import { getValidate } from "../helpers";
+import { Loading, UserEditInfo } from "../../components/index";
+import { getValidate } from "../../helpers";
 
 export function UserEdit() {
   const { id } = useParams();
