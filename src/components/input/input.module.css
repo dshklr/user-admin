@@ -9,3 +9,12 @@
   color: red;
   margin-top: 5px;
 }
+
+.input {
+  margin-bottom: 15px;
+  width: 300px;
+}
+
+.hasError {
+  border: 1px solid red;
+}

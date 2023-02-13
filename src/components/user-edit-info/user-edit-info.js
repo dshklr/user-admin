@@ -11,7 +11,6 @@ export function UserEditInfo({ user, onChange, onSave, errors, handleBack }) {
         value={user.avatar}
         name="avatar"
         onChange={onChange}
-        className={errors["avatar"] ? styles.hasError : styles.input}
         error={errors["avatar"]}
       />
       <Input
@@ -19,7 +18,6 @@ export function UserEditInfo({ user, onChange, onSave, errors, handleBack }) {
         value={user.name}
         name="name"
         onChange={onChange}
-        className={errors["name"] ? styles.hasError : styles.input}
         error={errors["name"]}
       />
       <Input
@@ -27,7 +25,6 @@ export function UserEditInfo({ user, onChange, onSave, errors, handleBack }) {
         value={user.birthdate}
         name="birthdate"
         onChange={onChange}
-        className={errors["birthdate"] ? styles.hasError : styles.input}
         error={errors["birthdate"]}
       />
       <Input
@@ -35,7 +32,6 @@ export function UserEditInfo({ user, onChange, onSave, errors, handleBack }) {
         name="city"
         value={user.city}
         onChange={onChange}
-        className={errors["city"] ? styles.hasError : styles.input}
         error={errors["city"]}
       />
       <Input
@@ -43,7 +39,6 @@ export function UserEditInfo({ user, onChange, onSave, errors, handleBack }) {
         value={user.email}
         name="email"
         onChange={onChange}
-        className={errors["email"] ? styles.hasError : styles.input}
         error={errors["email"]}
       />
       <div className={styles.container}>

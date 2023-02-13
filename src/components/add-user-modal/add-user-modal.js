@@ -50,7 +50,6 @@ export function AddUserModal({ isOpen, onClose, onSave }) {
           name="avatar"
           value={userState.avatar}
           onChange={handleInputChange}
-          className={errors["avatar"] ? styles.hasError : styles.input}
           error={errors["avatar"]}
         />
         <Input
@@ -58,7 +57,6 @@ export function AddUserModal({ isOpen, onClose, onSave }) {
           name="name"
           value={userState.name}
           onChange={handleInputChange}
-          className={errors["name"] ? styles.hasError : styles.input}
           error={errors["name"]}
         />
         <Input
@@ -66,7 +64,6 @@ export function AddUserModal({ isOpen, onClose, onSave }) {
           name="birthdate"
           value={userState.birthdate}
           onChange={handleInputChange}
-          className={errors["birthdate"] ? styles.hasError : styles.input}
           error={errors["birthdate"]}
         />
 
@@ -75,7 +72,6 @@ export function AddUserModal({ isOpen, onClose, onSave }) {
           name="city"
           value={userState.city}
           onChange={handleInputChange}
-          className={errors["city"] ? styles.hasError : styles.input}
           error={errors["city"]}
         />
         <Input
@@ -83,7 +79,6 @@ export function AddUserModal({ isOpen, onClose, onSave }) {
           name="email"
           value={userState.email}
           onChange={handleInputChange}
-          className={errors["email"] ? styles.hasError : styles.input}
           error={errors["email"]}
         />
         <div className={styles.buttonContainer}>

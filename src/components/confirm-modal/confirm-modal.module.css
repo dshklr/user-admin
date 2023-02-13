@@ -33,15 +33,3 @@
   margin-top: 20px;
 }
 
-.button {
-  background-color: white;
-  border: 1px solid gray;
-  border-radius: 5px;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.button:hover {
-  background-color: lightgray;
-}

@@ -7,18 +7,8 @@
   margin-top: 150px;
 }
 
-.input {
-  width: 300px;
-}
-
 .container {
   display: flex;
   gap: 15px;
   margin-top: 10px;
-}
-
-.hasError {
-  border: 1px solid red;
-  margin-top: 6px;
-  width: 300px;
 }

@@ -8,7 +8,7 @@ export function Input({
   name,
   className,
   type = "text",
-  error, // srtimg \ unde
+  error,
 }) {
   return (
     <>
@@ -19,7 +19,7 @@ export function Input({
           value={value}
           onChange={onChange}
           name={name}
-          className={className}
+          className={error ? styles.hasError : styles.input}
         />
       </label>
       {error && <p className={styles.errorMessage}>{error}</p>}
