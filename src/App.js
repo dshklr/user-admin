@@ -1,7 +1,7 @@
 //libs
 import { Routes, Route } from "react-router-dom";
 //pages
-import { User, Users, UserEdit, NotFound } from "./pages/index";
+import { User, Users, UserEdit, NotFound } from "./pages";
 
 function App() {
   return (
