@@ -1,10 +1,10 @@
+//libs
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import Loading from "../components/loader/loader";
-import { api } from "../api/index";
-import UserProfileCard from "../components/user-profile-card/user-info";
-import { useNavigate } from "react-router-dom";
-import ConfirmModal from "../components/confirm-modal/confirm-modal";
+import { useParams, useNavigate } from "react-router-dom";
+//components
+import { Loading, UserProfileCard, ConfirmModal } from "../../components/index";
+//api
+import { api } from "../../api/index";
 
 export function User() {
   const { id } = useParams();

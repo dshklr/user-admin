@@ -1,11 +1,18 @@
+//libs
 import React, { useState, useEffect } from "react";
-import UserList from "../components/user-list/user-list";
-import Search from "../components/search/search";
-import Select from "../components/select/select";
-import { SELECT_OPTIONS, SORT_OPTIONS } from "../components/constants";
-import { api } from "../api/index";
-import Loading from "../components/loader/loader";
-import "../app.css";
+//components
+import {
+  UserList,
+  Search,
+  Select,
+  Loading,
+  AddUserModal,
+  Button,
+} from "../../components/index";
+import { SELECT_OPTIONS, SORT_OPTIONS } from "../../constants";
+//api
+import { api } from "../../api/index";
+import styles from "./users.module.css";
 
 export function Users() {
   const [users, setUsers] = useState([]);
@@ -13,6 +20,7 @@ export function Users() {
   const [sort, setSort] = useState(SORT_OPTIONS[0].value);
   const [order, setOrder] = useState(SELECT_OPTIONS[0].value);
   const [isLoading, setIsLoading] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   const handleOrderChange = (order) => {
     setOrder(order);
@@ -46,9 +54,40 @@ export function Users() {
     });
   }, [order, sort, searchValue]);
 
+  const handleAddUser = () => {
+    setShowModal(true);
+  };
+
+  const handleClose = () => {
+    setShowModal(false);
+  };
+
+  const handleUserAdd = async (user) => {
+    try {
+      handleClose();
+      setIsLoading(true);
+
+      const response = await api.post("/users", user);
+      if (!!response) {
+        const responseUser = await api.get(`/users`, {
+          params: {
+            ...(searchValue ? { name: searchValue } : {}),
+            sortBy: sort,
+            order: order,
+          },
+        });
+        setUsers(responseUser.data);
+      }
+    } catch (error) {
+      console.error("Error adding user", error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
-    <div className="container">
-      <div className="searchControl">
+    <div className={styles.container}>
+      <div className={styles.searchControl}>
         <Search
           value={searchValue}
           setSearchValue={setSearchValue}
@@ -56,6 +95,7 @@ export function Users() {
         />
         <Select onChange={handleOrderChange} options={SELECT_OPTIONS} />
         <Select onChange={handleSortChange} options={SORT_OPTIONS} />
+        <Button onClick={handleAddUser} label="add new user" />
       </div>
       {isLoading ? (
         <Loading />
@@ -63,6 +103,13 @@ export function Users() {
         <p>Nothing found</p>
       ) : (
         <UserList users={users} />
+      )}
+      {showModal && (
+        <AddUserModal
+          isOpen={true}
+          onClose={handleClose}
+          onSave={handleUserAdd}
+        />
       )}
     </div>
   );

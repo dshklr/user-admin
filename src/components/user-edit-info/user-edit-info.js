@@ -1,5 +1,7 @@
+//libs
 import React from "react";
-import { Input } from "../input/input";
+//components
+import { Input, Button } from "../index";
 import styles from "./user-edit-info.module.css";
 
 export function UserEditInfo({ user, onChange, onSave, errors, handleBack }) {
@@ -10,54 +12,39 @@ export function UserEditInfo({ user, onChange, onSave, errors, handleBack }) {
         value={user.avatar}
         name="avatar"
         onChange={onChange}
-        className={errors["avatar"] ? styles.hasError : ""}
+        error={errors["avatar"]}
       />
-      {errors["avatar"] && (
-        <p className={styles.errorMessage}>{errors["avatar"]}</p>
-      )}
       <Input
         label="name"
         value={user.name}
         name="name"
         onChange={onChange}
-        className={errors["name"] ? styles.hasError : ""}
+        error={errors["name"]}
       />
-      {errors["name"] && (
-        <p className={styles.errorMessage}>{errors["name"]}</p>
-      )}
       <Input
         label="date of birth"
         value={user.birthdate}
         name="birthdate"
         onChange={onChange}
-        className={errors["birthdate"] ? styles.hasError : ""}
+        error={errors["birthdate"]}
       />
-      {errors["birthdate"] && (
-        <p className={styles.errorMessage}>{errors["birthdate"]}</p>
-      )}
       <Input
         label="city"
         name="city"
         value={user.city}
         onChange={onChange}
-        className={errors["city"] ? styles.hasError : ""}
+        error={errors["city"]}
       />
-      {errors["city"] && (
-        <p className={styles.errorMessage}>{errors["city"]}</p>
-      )}
       <Input
         label=" email"
         value={user.email}
         name="email"
         onChange={onChange}
-        className={errors["email"] ? styles.hasError : ""}
+        error={errors["email"]}
       />
-      {errors["email"] && (
-        <p className={styles.errorMessage}>{errors["email"]}</p>
-      )}
       <div className={styles.container}>
-        <button onClick={onSave}>save</button>
-        <button onClick={handleBack}>cancel</button>
+        <Button label="save" onClick={onSave} />
+        <Button onClick={handleBack} label="cancel" />
       </div>
     </div>
   );

@@ -1,8 +1,7 @@
-import { Users } from "./pages/users";
-import { User } from "./pages/user";
+//libs
 import { Routes, Route } from "react-router-dom";
-import { NotFound } from "./pages/not-found";
-import { UserEdit } from "./pages/user-edit";
+//pages
+import { User, Users, UserEdit, NotFound } from "./pages/index";
 
 function App() {
   return (

@@ -1,8 +1,12 @@
-import calculateAge from "../helpers";
-import styles from "./user-info.module.css";
+//libs
+import React from "react";
 import { Link } from "react-router-dom";
+//components
+import calculateAge from "../../helpers";
+import { Button } from "../index";
+import styles from "./user-info.module.css";
 
-export default function UserProfileCard({ user, onDelete }) {
+export function UserProfileCard({ user, onDelete }) {
   return (
     <div className={styles.container}>
       <div className={styles.imageName}>
@@ -17,13 +21,11 @@ export default function UserProfileCard({ user, onDelete }) {
         <p className={styles.title}>Email: </p>
         {user.email}
       </div>
-      <div>
+      <div className={styles.buttonContainer}>
         <Link to={`/user/${user.id}/edit`}>
-          <button className={styles.button}>edit</button>
+          <Button label="edit" />
         </Link>
-        <button onClick={onDelete} className={styles.button}>
-          delete
-        </button>
+        <Button label="delete" onClick={onDelete} />
       </div>
     </div>
   );

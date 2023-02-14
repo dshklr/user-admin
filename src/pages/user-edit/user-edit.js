@@ -1,9 +1,11 @@
+//libs
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { api } from "../api";
-import Loading from "../components/loader/loader";
-import { UserEditInfo } from "../components/user-edit-info/user-edit-info";
-import { useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
+//api
+import { api } from "../../api";
+//components
+import { Loading, UserEditInfo } from "../../components/index";
+import { getValidate } from "../../helpers";
 
 export function UserEdit() {
   const { id } = useParams();
@@ -44,22 +46,11 @@ export function UserEdit() {
     setErrors(updatedErrors);
   };
 
-  const validate = (object) => {
-    const updatedErrors = { ...errors };
-
-    Object.entries(object).forEach(([key, value]) => {
-      if (value === "") {
-        updatedErrors[key] = "This information is important to us!";
-      }
-    });
-
-    setErrors(updatedErrors);
-  };
-
   const save = async () => {
-    validate(user);
+    const { isValid, updatedErrors } = getValidate(user);
 
-    if (Object.keys(errors).length > 0) {
+    if (!isValid) {
+      setErrors(updatedErrors);
       return;
     }
 

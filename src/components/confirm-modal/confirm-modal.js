@@ -1,8 +1,11 @@
+//libs
 import React from "react";
 import Modal from "react-modal";
+//components
+import { Button } from "../index";
 import styles from "./confirm-modal.module.css";
 
-export default function ConfirmModal({ isOpen, onClose, onConfirm }) {
+export function ConfirmModal({ isOpen, onClose, onConfirm }) {
   return (
     <div>
       <Modal
@@ -16,12 +19,8 @@ export default function ConfirmModal({ isOpen, onClose, onConfirm }) {
             Are you sure you want to delete user?
           </h2>
           <div className={styles.footer}>
-            <button className={styles.button} onClick={onClose}>
-              No
-            </button>
-            <button className={styles.button} onClick={onConfirm}>
-              Yes
-            </button>
+            <Button label="Yes" onClick={onConfirm} />
+            <Button label="No" onClick={onClose} />
           </div>
         </div>
       </Modal>
