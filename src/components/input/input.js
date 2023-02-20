@@ -2,18 +2,10 @@
 import React from "react";
 import styles from "./input.module.css";
 
-export function Input({
-  label,
-  value,
-  onChange,
-  name,
-  className,
-  type = "text",
-  error,
-}) {
+export function Input({ label, value, onChange, name, type = "text", error }) {
   return (
-    <>
-      <label className={styles.label}>
+    <div className={styles.container}>
+      <label className={error ? styles.errorLabel : styles.label}>
         {label}
         <input
           type={type}
@@ -23,7 +15,7 @@ export function Input({
           className={error ? styles.hasError : styles.input}
         />
       </label>
-      {error && <p className={styles.errorMessage}>{error}</p>}
-    </>
+      {error && <div className={styles.errorMessage}>{error}</div>}
+    </div>
   );
 }

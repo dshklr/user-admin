@@ -2,17 +2,17 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
 //components
-import { Input, Button } from "../index";
-import { getValidate } from '../../helpers'
+import { Input, Button, DateInput } from "../index";
+import { getValidate } from "../../helpers";
 
 import styles from "../add-user-modal/add-user-modal.module.css";
 
 const DEFAULT_USER = {
   avatar: "",
   name: "",
-  birthdate: "",
   city: "",
   email: "",
+  birthdate: new Date(),
 };
 
 export function AddUserModal({ isOpen, onClose, onSave }) {
@@ -41,6 +41,7 @@ export function AddUserModal({ isOpen, onClose, onSave }) {
       ...userState,
       [e.target.name]: e.target.value,
     });
+
     setErrors(updatedErrors);
   };
 
@@ -48,36 +49,33 @@ export function AddUserModal({ isOpen, onClose, onSave }) {
     <div className={styles.modalOverlay}>
       <Modal isOpen={isOpen} ariaHideApp={false} className={styles.modal}>
         <Input
-          label="image source"
+          label="Image source"
           name="avatar"
           value={userState.avatar}
           onChange={handleInputChange}
           error={errors["avatar"]}
         />
         <Input
-          label="name"
+          label="Name"
           name="name"
           value={userState.name}
           onChange={handleInputChange}
           error={errors["name"]}
         />
-        <Input
-          label="date of birth"
-          name="birthdate"
-          value={userState.birthdate}
+        <DateInput
+        label='Birthdate'
+          defaultValue={userState.birthdate}
           onChange={handleInputChange}
-          error={errors["birthdate"]}
         />
-
         <Input
-          label="city"
+          label="City"
           name="city"
           value={userState.city}
           onChange={handleInputChange}
           error={errors["city"]}
         />
         <Input
-          label="email"
+          label="Email"
           name="email"
           value={userState.email}
           onChange={handleInputChange}

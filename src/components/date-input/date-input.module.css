@@ -1,0 +1,29 @@
+.root {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 9.5px;
+  width: 315px;
+}
+
+.selectContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 96px;
+}
+
+.selectContainer select {
+  display: flex;
+  align-items: flex-start;
+  margin-left: 12px;
+  width: 100%;
+}
+
+.label {
+  font-size: 12px;
+  display: flex;
+  align-self: flex-start;
+  margin-left: 6px;
+  margin-top: 5px;
+}

@@ -1,7 +1,7 @@
 //libs
 import React from "react";
 //components
-import { Input, Button } from "../index";
+import { Input, Button, DateInput } from "../index";
 import styles from "./user-edit-info.module.css";
 
 export function UserEditInfo({ user, onChange, onSave, errors, handleBack }) {
@@ -21,12 +21,10 @@ export function UserEditInfo({ user, onChange, onSave, errors, handleBack }) {
         onChange={onChange}
         error={errors["name"]}
       />
-      <Input
-        label="date of birth"
-        value={user.birthdate}
-        name="birthdate"
+      <DateInput
+        label="Birthdate"
+        defaultValue={user.birthdate}
         onChange={onChange}
-        error={errors["birthdate"]}
       />
       <Input
         label="city"
