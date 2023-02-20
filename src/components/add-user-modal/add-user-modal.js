@@ -41,7 +41,7 @@ export function AddUserModal({ isOpen, onClose, onSave }) {
       ...userState,
       [e.target.name]: e.target.value,
     });
-    console.log(userState);
+
     setErrors(updatedErrors);
   };
 
