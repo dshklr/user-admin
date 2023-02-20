@@ -41,7 +41,7 @@ export function UserEdit() {
     if (e.target.name in updatedErrors) {
       delete updatedErrors[e.target.name];
     }
-
+    
     setUser({ ...user, [e.target.name]: e.target.value });
     setErrors(updatedErrors);
   };

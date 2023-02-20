@@ -1,3 +1,5 @@
+import { arrayRange } from "./helpers";
+
 export const SELECT_OPTIONS = [
   {
     value: "asc",
@@ -24,3 +26,8 @@ export const SORT_OPTIONS = [
   },
 ];
 
+const DAYS = arrayRange(1, 31, 1);
+const MONTHS = arrayRange(1, 12, 1);
+const YEARS = arrayRange(1900, new Date().getFullYear(), 1);
+
+export { DAYS, MONTHS, YEARS };

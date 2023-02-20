@@ -13,8 +13,8 @@ export function Input({
 }) {
   return (
     <>
-      <label className={styles.label}>
-        {label}
+      <label className={error ? styles.errorMessage : styles.label}>
+        {label} {error && error}
         <input
           type={type}
           value={value}
@@ -23,7 +23,7 @@ export function Input({
           className={error ? styles.hasError : styles.input}
         />
       </label>
-      {error && <p className={styles.errorMessage}>{error}</p>}
+      {/* {error && <p className={styles.errorMessage}>{error}</p>} */}
     </>
   );
 }
