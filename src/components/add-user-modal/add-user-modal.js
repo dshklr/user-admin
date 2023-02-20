@@ -63,6 +63,7 @@ export function AddUserModal({ isOpen, onClose, onSave }) {
           error={errors["name"]}
         />
         <DateInput
+        label='Birthdate'
           defaultValue={userState.birthdate}
           onChange={handleInputChange}
         />

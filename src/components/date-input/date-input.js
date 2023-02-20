@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { DAYS, MONTHS, YEARS } from "../../constants";
 import styles from "./date-input.module.css";
 
-export function DateInput({ onChange, defaultValue, name }) {
+export function DateInput({ onChange, defaultValue, label }) {
   const defaultDate = !!defaultValue ? new Date(defaultValue) : new Date();
 
   const [date, setDate] = useState({
@@ -39,56 +39,65 @@ export function DateInput({ onChange, defaultValue, name }) {
 
   return (
     <>
-      <div className={styles.root}>
-        <div className={styles.selectContainer}>
-          <label htmlFor="days"> day:</label>
-          <select
-            name="day"
-            id="days"
-            value={date.day}
-            onChange={handleChange}
-            autoComplete="true"
-          >
-            {DAYS.map((day) => (
-              <option key={day} value={day}>
-                {day}
-              </option>
-            ))}
-          </select>
+      <label className={styles.mainLabel}>
+        {label}
+        <div className={styles.root}>
+          <div className={styles.selectContainer}>
+            <label className={styles.label} htmlFor="days">
+              day:
+            </label>
+            <select
+              name="day"
+              id="days"
+              value={date.day}
+              onChange={handleChange}
+              autoComplete="true"
+            >
+              {DAYS.map((day) => (
+                <option key={day} value={day}>
+                  {day}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className={styles.selectContainer}>
+            <label className={styles.label} htmlFor="months">
+              month:
+            </label>
+            <select
+              name="month"
+              id="months"
+              value={date.month}
+              onChange={handleChange}
+              autoComplete="true"
+            >
+              {MONTHS.map((month) => (
+                <option key={month} value={month}>
+                  {month}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className={styles.selectContainer}>
+            <label className={styles.label} htmlFor="years">
+              year:
+            </label>
+            <select
+              name="year"
+              id="years"
+              value={date.year}
+              autoComplete="true"
+              onChange={handleChange}
+            >
+              {YEARS.map((year) => (
+                <option key={year} value={year}>
+                  {year}
+                </option>
+              ))}
+            </select>
+          </div>
         </div>
-        <div className={styles.selectContainer}>
-          <label htmlFor="months"> month:</label>
-          <select
-            name="month"
-            id="months"
-            value={date.month}
-            onChange={handleChange}
-            autoComplete="true"
-          >
-            {MONTHS.map((month) => (
-              <option key={month} value={month}>
-                {month}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div className={styles.selectContainer}>
-          <label htmlFor="years">year:</label>
-          <select
-            name="year"
-            id="years"
-            value={date.year}
-            autoComplete="true"
-            onChange={handleChange}
-          >
-            {YEARS.map((year) => (
-              <option key={year} value={year}>
-                {year}
-              </option>
-            ))}
-          </select>
-        </div>
-      </div>
+      </label>
     </>
   );
 }

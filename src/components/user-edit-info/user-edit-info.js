@@ -21,7 +21,11 @@ export function UserEditInfo({ user, onChange, onSave, errors, handleBack }) {
         onChange={onChange}
         error={errors["name"]}
       />
-      <DateInput defaultValue={user.birthdate} onChange={onChange} />
+      <DateInput
+        label="Birthdate"
+        defaultValue={user.birthdate}
+        onChange={onChange}
+      />
       <Input
         label="city"
         name="city"
